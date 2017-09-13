@@ -27,6 +27,26 @@
 npm i -D gulp browserify vinyl-source-stream gulp-concat gulp-uglify gulp-util del jshint gulp-jshint bower-files browser-sync jasmine karma karma-jasmine jasmine-core karma-chrome-launcher karma-cli karma-browserify karma-jquery karma-jasmine-html-reporter watchify
 ```
 
+## Install ES6
+```
+npm install babelify babel-preset-es2015 --save-dev
+```
+```
+...
+var babelify = require("babelify");
+...
+
+gulp.task('jsBrowserify', ['concatInterface'], function() {
+  return browserify({ entries: ['./tmp/allConcat.js']})
+    .transform(babelify.configure({
+      presets: ["es2015"]
+    }))
+    .bundle()
+    .pipe(source('app.js'))
+    .pipe(gulp.dest('./build/js'))
+});
+```
+
 ### Initialize karma
 ```
 karma init
