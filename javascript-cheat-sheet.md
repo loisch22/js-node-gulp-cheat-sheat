@@ -238,7 +238,10 @@ module.exports = function(config) {
 ```
 ./node_modules/.bin/jasmine init
 ```
-
+## Install karma-jasmine
+```
+npm install karma-jasmine jasmine-core --save-dev
+```
 ### Edit `package.json` file
 ```
 "scripts": {
